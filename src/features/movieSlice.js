@@ -8,14 +8,14 @@ export const fetchAsyncMovies = createAsyncThunk(
     "movies/fetchMovies",
     async () => {
         const response = await baseURL.get(`${requests.requestPopular}`);
-        return response.data.results[5];
+        return response.data.results[6];
     }
 );
 
 export const fetchAsyncMovieOrShowDetail = createAsyncThunk(
     "movies/fetchAsyncMovieOrShowDetail",
     async (movie_id) => {
-      const response = await baseURL.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=592508130f6e9c513764df62060036ae&language=en-US`);
+      const response = await baseURL.get(`movie/${movie_id}?api_key=592508130f6e9c513764df62060036ae&language=en-US`);
       return response.data;
     }
   );

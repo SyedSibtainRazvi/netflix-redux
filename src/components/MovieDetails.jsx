@@ -8,33 +8,27 @@ import {
 } from "../features/movieSlice"
 
 const MovieDetail = () => {
-    const { movieId } = useParams()
+    const { id } = useParams()
     const dispatch = useDispatch()
 
-    const data = useSelector(getSelectedMovieOrShow)
-    console.log(data);
+    const item = useSelector(getSelectedMovieOrShow)
 
     useEffect(() => {
-        dispatch(fetchAsyncMovieOrShowDetail(movieId));
+        dispatch(fetchAsyncMovieOrShowDetail(id));
         return () => {
             dispatch(removeSelectedMovieOrShow())
         }
-    }, [dispatch, movieId])
+    }, [dispatch, id])
 
     return (
         <div className="movie-section" >
-            {
-                Object.keys(data).length === 0 ? (
-                    <div>...Loading</div>
-                ) : (
-                    <>
-                        <div className="ml-[30px] pt-[140px] h-[190px]">
-                            <h1 className="text-[3rem] font-bold pb-[0.3rem] text-white">
-                                {data?.title || data?.name || data?.original_name}
-                            </h1>
-                        </div>
-                    </>
-                )}
+            <>
+                <div className="ml-[30px] pt-[140px] h-[190px]">
+                    <h1 className="text-[3rem] font-bold pb-[0.3rem] text-white">
+                        {item?.title || item?.name || item?.original_name}
+                    </h1>
+                </div>
+            </>
         </div>
     )
 }
