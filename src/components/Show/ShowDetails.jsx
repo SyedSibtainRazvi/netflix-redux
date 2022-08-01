@@ -12,7 +12,6 @@ const ShowDetail = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-
     const item = useSelector(getSelectedShow)
     const load = useSelector((state) => state.show.loading)
 

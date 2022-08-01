@@ -17,8 +17,6 @@ const initialState = {
     error: ""
 }
 
-
-
 const bannerSlice = createSlice({
     name: "banner",
     initialState,

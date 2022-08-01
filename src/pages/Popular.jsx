@@ -1,10 +1,9 @@
 import React from 'react'
+import PopularRow from '../components/popular/PopularRow'
 
 const Popular = () => {
     return (
-        <div>
-
-        </div>
+        <PopularRow />
     )
 }
 

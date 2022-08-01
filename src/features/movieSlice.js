@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import baseURL from "../Api/baseURL";
 import requests from "../Api/requests";
 
-
 export const fetchAsyncMovieDetail = createAsyncThunk(
     "movies/fetchAsyncMovie",
     async (movie_id) => {
@@ -39,16 +38,13 @@ export const fetchAsyncHorror = createAsyncThunk(
     }
 )
 
-
-
-
 const initialState = {
+    loading: false,
     moviesTrending: [],
     moviesToprated: [],
     moviesHorror: [],
     selectMovie: {}
 }
-
 
 const movieSlice = createSlice({
     name: "movies",
@@ -68,8 +64,11 @@ const movieSlice = createSlice({
         builder.addCase(fetchAsyncHorror.fulfilled, (state, action) => {
             state.moviesHorror = action.payload
         })
+        builder.addCase(fetchAsyncMovieDetail.pending, (state) => {
+            state.loading = true
+        })
         builder.addCase(fetchAsyncMovieDetail.fulfilled, (state, action) => {
-            return { ...state, selectMovie: action.payload }
+            return { ...state, selectMovie: action.payload, loading: false }
         })
     }
 })
@@ -81,4 +80,4 @@ export const moviesToprated = (state) => state.movie.moviesToprated
 export const moviesHorror = (state) => state.movie.moviesHorror
 
 export const getSelectedMovie = (state) => state.movie.selectMovie
-export const {removeSelectedMovie} = movieSlice.actions
+export const { removeSelectedMovie } = movieSlice.actions

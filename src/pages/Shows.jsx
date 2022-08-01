@@ -1,11 +1,9 @@
 import React from 'react'
-import ShowRow from '../components/Show/ShowRow'
+import ShowRow from '../components/show/ShowRow'
 
 const Shows = () => {
   return (
-    <>
-    <ShowRow />
-    </>
+      <ShowRow />
   )
 }
 

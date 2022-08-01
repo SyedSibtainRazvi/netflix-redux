@@ -20,7 +20,7 @@ export const MovieRow = () => {
     }, [dispatch]);
 
     return (
-        <div>
+        <>
             <>
                 <h1 className='text-white font-bold md:text-xl p-4'>Trending Movies</h1>
                 <div className='relative flex items-center group'>
@@ -54,7 +54,7 @@ export const MovieRow = () => {
                     </div>
                 </div>
             </>
-        </div>
+        </>
     )
 }
- export default MovieRow
+export default MovieRow

@@ -4,7 +4,6 @@ import truncateString from '../../helpers/truncate';
 
 import { moviesBanner, fetchAsyncMoviesBanner } from "../../features/bannerSlice"
 
-
 const Banner = () => {
   const randomInfo = useSelector(moviesBanner);
   const load = useSelector((state) => state.banner.loading)
@@ -14,8 +13,6 @@ const Banner = () => {
     dispatch(fetchAsyncMoviesBanner())
   }, [dispatch]);
 
-
-
   return (
     <>
       {load ? (
@@ -24,7 +21,7 @@ const Banner = () => {
         </div>
       ) : (
         <div
-          className='w-full h-[470px] text-white'
+          className='w-full h-[580px] text-white'
           style={{
             backgroundSize: "cover",
             backgroundImage: `url("https://image.tmdb.org/t/p/original${randomInfo?.backdrop_path}")`,

@@ -1,10 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 
 const MovieCard = ({ item }) => {
   return (
-    <Fragment>
-      <div className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'>
+    <div className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'>
       <Link to={`/movies/${item.id}`}>
         <img
           className='w-full h-auto block'
@@ -16,9 +15,8 @@ const MovieCard = ({ item }) => {
             {item?.title || item?.name}
           </p>
         </div>
-        </Link>
-      </div>
-    </Fragment>
+      </Link>
+    </div>
   );
 };
 

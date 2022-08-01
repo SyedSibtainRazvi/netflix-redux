@@ -3,8 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAsyncTvAiring, showsTop, showsAiring, fetchAsyncTopTv } from '../../features/showSlice';
 
-import ShowCard from '../Show/ShowCard';
-
+import ShowCard from './ShowCard';
 
 export const ShowRow = () => {
     const showsAir = useSelector(showsAiring);
@@ -15,7 +14,6 @@ export const ShowRow = () => {
         dispatch(fetchAsyncTvAiring())
         dispatch(fetchAsyncTopTv())
     }, [dispatch]);
-
 
     return (
         <div>
