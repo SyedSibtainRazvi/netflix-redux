@@ -7,10 +7,10 @@ import requests from "../Api/requests";
 export const fetchAsyncMovieDetail = createAsyncThunk(
     "movies/fetchAsyncMovie",
     async (movie_id) => {
-      const response = await baseURL.get(`movie/${movie_id}?api_key=592508130f6e9c513764df62060036ae&language=en-US`);
-      return response.data;
+        const response = await baseURL.get(`movie/${movie_id}?api_key=592508130f6e9c513764df62060036ae&language=en-US`);
+        return response.data;
     }
-  );
+);
 
 //Fetch Trending
 export const fetchAsyncTrending = createAsyncThunk(
@@ -53,19 +53,23 @@ const initialState = {
 const movieSlice = createSlice({
     name: "movies",
     initialState,
-    reducers: {},
+    reducers: {
+        removeSelectedMovie: (state) => {
+            state.selectMovieOrShow = {};
+        },
+    },
     extraReducers: builder => {
-        builder.addCase(fetchAsyncTrending.fulfilled, (state, action) =>{
+        builder.addCase(fetchAsyncTrending.fulfilled, (state, action) => {
             state.moviesTrending = action.payload
         })
-        builder.addCase(fetchAsyncToprated.fulfilled, (state, action) =>{
+        builder.addCase(fetchAsyncToprated.fulfilled, (state, action) => {
             state.moviesToprated = action.payload
         })
-        builder.addCase(fetchAsyncHorror.fulfilled, (state, action) =>{
+        builder.addCase(fetchAsyncHorror.fulfilled, (state, action) => {
             state.moviesHorror = action.payload
         })
         builder.addCase(fetchAsyncMovieDetail.fulfilled, (state, action) => {
-            return {...state, selectMovie : action.payload}
+            return { ...state, selectMovie: action.payload }
         })
     }
 })
@@ -77,3 +81,4 @@ export const moviesToprated = (state) => state.movie.moviesToprated
 export const moviesHorror = (state) => state.movie.moviesHorror
 
 export const getSelectedMovie = (state) => state.movie.selectMovie
+export const {removeSelectedMovie} = movieSlice.actions

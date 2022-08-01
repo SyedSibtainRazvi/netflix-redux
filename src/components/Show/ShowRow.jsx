@@ -1,21 +1,21 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAsyncTopTv, fetchAsyncTvAiring, showsTop, showsAiring } from '../../features/showSlice';
+import { fetchAsyncTvAiring, showsTop, showsAiring, fetchAsyncTopTv } from '../../features/showSlice';
 
-import ShowCard from '../Movie/MovieCard';
+import ShowCard from '../Show/ShowCard';
 
 
 export const ShowRow = () => {
-    const showTop = useSelector(showsTop);
     const showsAir = useSelector(showsAiring);
+    const showTop = useSelector(showsTop);
     const dispatch = useDispatch()
 
-
     useEffect(() => {
-        dispatch(fetchAsyncTopTv())
         dispatch(fetchAsyncTvAiring())
+        dispatch(fetchAsyncTopTv())
     }, [dispatch]);
+
 
     return (
         <div>

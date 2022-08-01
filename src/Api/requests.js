@@ -10,6 +10,7 @@ const requests = {
   fetchTvTop: `https://api.themoviedb.org/3/tv/top_rated?api_key=${key}&language=en-US&page=1`,
   fetchTvAiring: `https://api.themoviedb.org/3/tv/airing_today?api_key=${key}&language=en-US&page=1`,
   fetchTvPopular: `https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en-US&page=1`,
+  fetchTvLatest: `https://api.themoviedb.org/3/tv/latest?api_key=${key}&language=en-US&page=1,`
 
 };
 

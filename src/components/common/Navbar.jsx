@@ -36,7 +36,7 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         <li className='mx-4 hover:text-white'>
-                            <NavLink to='/tvshows'
+                            <NavLink to='/tv'
                                 style={({ isActive }) =>
                                     isActive ? activeStyle : undefined
                                 }> Tv Shows
@@ -53,7 +53,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div onClick={handleClick} className='md:hidden z-10 text-white right-10 absolute'>
-                    {!navbar ? <FaBars /> : <FaTimes />}
+                    {!navbar ? <FaBars /> : <FaTimes/>}
                 </div>
                 <ul className={!navbar ? 'hidden' : 'absolute top-0 left-0 w-full h-screen bg-[#000] flex flex-col justify-center cursor-pointer text-white items-center'}>
                 <li className='py-6 text-4xl'>
@@ -69,7 +69,7 @@ const Navbar = () => {
                 </li>
                 <li className='py-6 text-4xl'>
                     {' '}
-                    <Link onClick={handleClick} to='/tvshows'>
+                    <Link onClick={handleClick} to='/tv'>
                         Tv Shows
                     </Link>
                 </li>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
+import truncateString from '../../helpers/truncate';
 
 import { moviesBanner, fetchAsyncMoviesBanner } from "../../features/bannerSlice"
 
@@ -13,13 +14,6 @@ const Banner = () => {
     dispatch(fetchAsyncMoviesBanner())
   }, [dispatch]);
 
-  const truncateString = (str, num) => {
-    if (str?.length > num) {
-      return str.slice(0, num) + '...';
-    } else {
-      return str;
-    }
-  };
 
 
   return (

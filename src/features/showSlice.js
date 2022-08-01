@@ -11,29 +11,27 @@ export const fetchAsyncShowDetail = createAsyncThunk(
       return response.data;
     }
   );
-
-  //Fetch Tv Top
+  //Fetch TV Airing
+  export const fetchAsyncTvAiring = createAsyncThunk(
+      "shows/fetchTvAiring",
+      async () => {
+          const response = await baseURL.get(`${requests.fetchTvAiring}`);
+          return response.data.results.slice(2,9)
+      }
+  )
+// Fetch Tv Top
 export const fetchAsyncTopTv = createAsyncThunk(
     "shows/fetchTvTop",
     async () => {
         const response = await baseURL.get(`${requests.fetchTvTop}`);
-        return response.data.results
-    }
-)
-
-//Fetch TV Airing
-export const fetchAsyncTvAiring = createAsyncThunk(
-    "shows/fetchTvAiring",
-    async () => {
-        const response = await baseURL.get(`${requests.fetchTvAiring}`);
-        return response.data.results
+        return response.data.results.slice(2)
     }
 )
 
 
 const initialState = {
-    showsTop: [],
     showsAiring: [],
+    showsTop: [],
     selectShow: {},
 }
 
