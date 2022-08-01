@@ -14,6 +14,7 @@ const ShowDetail = () => {
 
 
     const item = useSelector(getSelectedShow)
+    const load = useSelector((state) => state.show.loading)
 
     useEffect(() => {
         dispatch(fetchAsyncShowDetail(id));
@@ -21,27 +22,42 @@ const ShowDetail = () => {
 
     return (
         <>
-            <div className="m-4">
-                <button
-                    onClick={() => navigate(-1)}
-                    className='bg-red-600 px-6 py-2 rounded cursor-pointer text-white'>
-                    ⬅ Back
-                </button>
-                <h1 className="text-[3rem] font-bold text-white">
-                    {item?.title || item?.name || item?.original_name}
-                </h1>
-                <img
-                    className='w-[50vw] h-auto block rounded'
-                    src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
-                    alt={item?.title || item?.name} />
-                <div className="mt-4 text-white ">
-                    <h3 className="font-bold m-4">Runtime:  {item?.runtime} Minutes</h3>
-                    <h4>Released: {item?.release_date}</h4>
-                    <p className='w-full md:max-w-[70%] lg: max-w-50[50%] xl:max-w-[35%] text-gray-300'>
-                        {truncateString(item?.overview, 200)}
-                    </p>
+            {load ? (
+                <div className="flex m-auto justify-center">
+                    <h1 className='text-white text-4xl'>Loading.....</h1>
                 </div>
-            </div>
+            ) : (
+                <>
+                    <div className="m-4">
+                        <button
+                            onClick={() => navigate(-1)}
+                            className='bg-red-600 px-6 py-2 m-4 rounded cursor-pointer text-white'>
+                            ⬅ Back
+                        </button>
+                        <div className="md:flex justify-around m-4">
+                            <div>
+                                <img
+                                    className='w-[40vw] h-auto block rounded'
+                                    src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
+                                    alt={item?.title || item?.name} />
+                            </div>
+                            <div className="mt-4 text-white ml-[5rem]">
+                                <h1 className="text-[2rem] font-bold text-white">
+                                    {item?.title || item?.name || item?.original_name}
+                                </h1>
+                                <h4>Released: {item?.release_date}</h4>
+                                <br />
+                                <p className=' w-full  text-gray-300'> <b>OverView : <br />
+                                </b>
+                                    {truncateString(item?.overview, 200)}
+                                </p>
+                                <br />
+                                <h3 className="font-bold">Runtime:  {item?.runtime} Minutes</h3>
+                            </div>
+                        </div>
+                    </div>
+                </>)
+            }
         </>
     )
 }

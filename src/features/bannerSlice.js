@@ -14,6 +14,7 @@ export const fetchAsyncMoviesBanner = createAsyncThunk(
 const initialState = {
     loading: false,
     moviesBanner: [],
+    error: ""
 }
 
 
@@ -33,6 +34,8 @@ const bannerSlice = createSlice({
         })
         builder.addCase(fetchAsyncMoviesBanner.rejected, (state, action) => {
             console.log("Rejected!");
+            state.moviesBanner = []
+            state.error = action.payload
         })
     }
 })

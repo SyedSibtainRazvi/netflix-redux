@@ -18,9 +18,13 @@ const Banner = () => {
 
   return (
     <>
-      {load ? <p>Loading.....</p> :
+      {load ? (
+        <div className="flex m-auto justify-center">
+          <h1 className='text-white text-4xl'>Loading.....</h1>
+        </div>
+      ) : (
         <div
-          className='w-full h-[590px] text-white'
+          className='w-full h-[470px] text-white'
           style={{
             backgroundSize: "cover",
             backgroundImage: `url("https://image.tmdb.org/t/p/original${randomInfo?.backdrop_path}")`,
@@ -40,7 +44,7 @@ const Banner = () => {
               {truncateString(randomInfo?.overview, 140)}
             </p>
           </div>
-        </div>}
+        </div>)}
     </>
   )
 }

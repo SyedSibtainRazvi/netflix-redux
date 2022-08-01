@@ -30,6 +30,7 @@ export const fetchAsyncTopTv = createAsyncThunk(
 
 
 const initialState = {
+    loading: false,
     showsAiring: [],
     showsTop: [],
     selectShow: {},
@@ -42,14 +43,18 @@ const showSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(fetchAsyncTopTv.fulfilled, (state, action) => {
-            state.showsTop = action.payload
+           return {...state, showsTop : action.payload}
         })
         builder.addCase(fetchAsyncTvAiring.fulfilled, (state, action) => {
             state.showsAiring = action.payload
         })
-        builder.addCase(fetchAsyncShowDetail.fulfilled, (state, action) => {
-            return {...state, selectShow : action.payload}
+        builder.addCase(fetchAsyncShowDetail.pending, (state, action) => {
+            state.loading = true
         })
+        builder.addCase(fetchAsyncShowDetail.fulfilled, (state, action) => {
+            return {...state, selectShow : action.payload, loading: false}
+        })
+
     }
 })
 
