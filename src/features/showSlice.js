@@ -4,8 +4,15 @@ import baseURL from "../Api/baseURL";
 import requests from "../Api/requests";
 
 
+export const fetchAsyncShowDetail = createAsyncThunk(
+    "shows/fetchAsyncShowDetail",
+    async (tv_id) => {
+      const response = await baseURL.get(`tv/${tv_id}?api_key=592508130f6e9c513764df62060036ae`);
+      return response.data;
+    }
+  );
 
-//Fetch Tv Top
+  //Fetch Tv Top
 export const fetchAsyncTopTv = createAsyncThunk(
     "shows/fetchTvTop",
     async () => {
@@ -27,23 +34,23 @@ export const fetchAsyncTvAiring = createAsyncThunk(
 const initialState = {
     showsTop: [],
     showsAiring: [],
+    selectShow: {},
 }
 
 
 const showSlice = createSlice({
     name: "shows",
     initialState,
-    reducers: {
-        removeSelectedMovieOrShow: (state) => {
-            state.selectMovieOrShow = {};
-        },
-    },
+    reducers: {},
     extraReducers: builder => {
         builder.addCase(fetchAsyncTopTv.fulfilled, (state, action) => {
             state.showsTop = action.payload
         })
         builder.addCase(fetchAsyncTvAiring.fulfilled, (state, action) => {
             state.showsAiring = action.payload
+        })
+        builder.addCase(fetchAsyncShowDetail.fulfilled, (state, action) => {
+            return {...state, selectShow : action.payload}
         })
     }
 })
@@ -52,3 +59,5 @@ export default showSlice.reducer
 
 export const showsTop = (state) => state.show.showsTop
 export const showsAiring = (state) => state.show.showsAiring
+
+export const getSelectedShow = (state) => state.show.selectShow

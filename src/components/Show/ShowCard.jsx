@@ -1,11 +1,11 @@
 import React, {Fragment} from 'react';
 import { Link } from "react-router-dom";
 
-const Card = ({ item }) => {
+const ShowCard = ({ item }) => {
   return (
     <Fragment>
       <div className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'>
-      <Link to={`/movies/${item.id}`}>
+      <Link to={`/tv/${item.id}`}>
         <img
           className='w-full h-auto block'
           src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
@@ -22,4 +22,4 @@ const Card = ({ item }) => {
   );
 };
 
-export default Card;
+export default ShowCard;

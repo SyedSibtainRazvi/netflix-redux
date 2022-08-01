@@ -3,17 +3,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import baseURL from "../Api/baseURL";
 import requests from "../Api/requests";
 
-// Banner
-export const fetchAsyncMovies = createAsyncThunk(
-    "movies/fetchMovies",
-    async () => {
-        const response = await baseURL.get(`${requests.requestPopular}`);
-        return response.data.results[6];
-    }
-);
 
-export const fetchAsyncMovieOrShowDetail = createAsyncThunk(
-    "movies/fetchAsyncMovieOrShowDetail",
+export const fetchAsyncMovieDetail = createAsyncThunk(
+    "movies/fetchAsyncMovie",
     async (movie_id) => {
       const response = await baseURL.get(`movie/${movie_id}?api_key=592508130f6e9c513764df62060036ae&language=en-US`);
       return response.data;
@@ -51,31 +43,18 @@ export const fetchAsyncHorror = createAsyncThunk(
 
 
 const initialState = {
-    moviesBanner: [],
     moviesTrending: [],
     moviesToprated: [],
     moviesHorror: [],
-    selectMovieOrShow: {}
+    selectMovie: {}
 }
+
 
 const movieSlice = createSlice({
     name: "movies",
     initialState,
-    reducers: {
-        removeSelectedMovieOrShow: (state) => {
-            state.selectMovieOrShow = {};
-        },
-    },
+    reducers: {},
     extraReducers: builder => {
-        builder.addCase(fetchAsyncMovies.pending, state => {
-            console.log("Fetch Working");
-        })
-        builder.addCase(fetchAsyncMovies.fulfilled, (state, action) => {
-            state.moviesBanner = action.payload
-        })
-        builder.addCase(fetchAsyncMovies.rejected, (state, action) => {
-            console.log("Rejected!");
-        })
         builder.addCase(fetchAsyncTrending.fulfilled, (state, action) =>{
             state.moviesTrending = action.payload
         })
@@ -85,18 +64,16 @@ const movieSlice = createSlice({
         builder.addCase(fetchAsyncHorror.fulfilled, (state, action) =>{
             state.moviesHorror = action.payload
         })
-        builder.addCase(fetchAsyncMovieOrShowDetail.fulfilled, (state, action) => {
-            return {...state, selectMovieOrShow : action.payload}
+        builder.addCase(fetchAsyncMovieDetail.fulfilled, (state, action) => {
+            return {...state, selectMovie : action.payload}
         })
     }
 })
 
 export default movieSlice.reducer;
-export const moviesBanner = (state) => state.movie.moviesBanner
 
 export const moviesTrending = (state) => state.movie.moviesTrending
 export const moviesToprated = (state) => state.movie.moviesToprated
 export const moviesHorror = (state) => state.movie.moviesHorror
 
-export const getSelectedMovieOrShow = (state) => state.movie.selectMovieOrShow
-export const { removeSelectedMovieOrShow} = movieSlice.actions
+export const getSelectedMovie = (state) => state.movie.selectMovie

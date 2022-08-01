@@ -1,9 +1,9 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAsyncTopTv, fetchAsyncTvAiring, showsTop, showsAiring } from '../features/showSlice';
+import { fetchAsyncTopTv, fetchAsyncTvAiring, showsTop, showsAiring } from '../../features/showSlice';
 
-import Card from './Card';
+import ShowCard from '../Movie/MovieCard';
 
 
 export const ShowRow = () => {
@@ -17,7 +17,6 @@ export const ShowRow = () => {
         dispatch(fetchAsyncTvAiring())
     }, [dispatch]);
 
-    console.log(showTop);
     return (
         <div>
             <>
@@ -26,7 +25,7 @@ export const ShowRow = () => {
                     <div
                         className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
                         {showsAir?.map((item, id) => (
-                            <Card key={id} item={item} />
+                            <ShowCard key={id} item={item} />
                         ))}
                     </div>
                 </div>
@@ -37,7 +36,7 @@ export const ShowRow = () => {
                     <div
                         className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
                         {showTop?.map((item, id) => (
-                            <Card key={id} item={item} />
+                            <ShowCard key={id} item={item} />
                         ))}
                     </div>
                 </div>

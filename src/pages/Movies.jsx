@@ -1,11 +1,11 @@
 import React from 'react'
-import MovieRow from '../components/MovieRow'
+import MovieRow from '../components/Movie/MovieRow'
 
 export const Movies = () => {
   return (
-    <div>
+    <>
         <MovieRow />
-    </div>
+    </>
   )
 }
  export default Movies

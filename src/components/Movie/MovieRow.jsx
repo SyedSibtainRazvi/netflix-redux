@@ -1,9 +1,9 @@
 import React from 'react'
 import { useEffect } from 'react';
-import { moviesTrending, fetchAsyncTrending, moviesToprated, fetchAsyncToprated, moviesHorror, fetchAsyncHorror } from '../features/movieSlice';
+import { moviesTrending, fetchAsyncTrending, moviesToprated, fetchAsyncToprated, moviesHorror, fetchAsyncHorror } from '../../features/movieSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Card from './Card';
+import MovieCard from './MovieCard';
 
 
 export const MovieRow = () => {
@@ -27,7 +27,7 @@ export const MovieRow = () => {
                     <div
                         className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
                         {moviesTrend?.map((item, id) => (
-                            <Card key={id} item={item} />
+                            <MovieCard key={id} item={item} />
                         ))}
                     </div>
                 </div>
@@ -38,7 +38,7 @@ export const MovieRow = () => {
                     <div
                         className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
                         {moviesTop?.map((item, id) => (
-                            <Card key={id} item={item} />
+                            <MovieCard key={id} item={item} />
                         ))}
                     </div>
                 </div>
@@ -49,7 +49,7 @@ export const MovieRow = () => {
                     <div
                         className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>
                         {moviesHor?.map((item, id) => (
-                            <Card key={id} item={item} />
+                            <MovieCard key={id} item={item} />
                         ))}
                     </div>
                 </div>
