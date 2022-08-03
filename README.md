@@ -1,8 +1,8 @@
 # Netflix Clone
-Netflix Clone Made with React Redux
+
 
 ## Description:
-
+Clone of Netflix made with React Redux and Tailwind CSS
 
 ### Technologies Used:
 1) React JS.
