@@ -12,15 +12,15 @@ const PopularDetails = () => {
     const getData = useSelector(dataPopular)
 
     const compare = () => {
-        let compareData = getData.filter((e) => {
-            return e.id == id
+        let compareData = getData.filter((movie) => {
+            return movie.id == id;
         })
         setData(compareData)
     }
 
     useEffect(() => {
         compare()
-    }, [id])
+    },[])
 
     return (
         <>

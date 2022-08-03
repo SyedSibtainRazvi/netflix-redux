@@ -14,6 +14,7 @@ const ShowDetail = () => {
 
     const item = useSelector(getSelectedShow)
     const load = useSelector((state) => state.show.loading)
+    console.log(item);
 
     useEffect(() => {
         dispatch(fetchAsyncShowDetail(id));
@@ -44,14 +45,14 @@ const ShowDetail = () => {
                                 <h1 className="text-[2rem] font-bold text-white">
                                     {item?.title || item?.name || item?.original_name}
                                 </h1>
-                                <h4>Released: {item?.release_date}</h4>
+                                <h4>Released: {item?.first_air_date}</h4>
                                 <br />
                                 <p className=' w-full  text-gray-300'> <b>OverView : <br />
                                 </b>
                                     {truncateString(item?.overview, 200)}
                                 </p>
                                 <br />
-                                <h3 className="font-bold">Runtime:  {item?.runtime} Minutes</h3>
+                                <h3 className="font-bold">Status:  {item?.status}</h3>
                             </div>
                         </div>
                     </div>
