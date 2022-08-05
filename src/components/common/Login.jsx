@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import bgHero from '../assets/bg-sign-in.jpg'
+import bgHero from '../../assets/bg-sign-in.jpg'
 
 const Login = () => {
 
