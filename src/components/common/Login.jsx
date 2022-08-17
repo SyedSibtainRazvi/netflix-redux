@@ -2,19 +2,6 @@ import React, { Fragment, useState } from 'react';
 import bgHero from '../../assets/bg-sign-in.jpg'
 
 const Login = () => {
-
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setError('');
-//     try {
-//       await logIn(email, password)
-//       navigate('/')
-//     } catch (error) {
-//       setError(error.message)
-//     }
-//   };
-
   return (
     <Fragment>
       <div className='w-full h-screen'>

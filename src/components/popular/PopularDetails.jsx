@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import truncateString from '../../helpers/truncate'
 import { dataPopular } from '../../features/popularSlice'
 
 const PopularDetails = () => {
-    const [data, setData] = useState([])
-    const navigate = useNavigate()
-
     const { id } = useParams()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    
+    const [data, setData] = useState([])
     const getData = useSelector(dataPopular)
 
     const compare = () => {
