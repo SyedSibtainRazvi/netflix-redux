@@ -1,28 +1,22 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import bgHero from '../../assets/bg-sign-in.jpg'
 
 const Login = () => {
   return (
-    <Fragment>
+    <>
       <div className='w-full h-screen'>
         <img
           className='hidden sm:block absolute w-full h-full object-cover'
           src={bgHero}
           alt='/'
         />
-        <div className='bg-black/60 fixed top-0 left-0 w-full h-screen'></div>
         <div className='fixed w-full px-4 py-24 z-50'>
-          <div className='max-w-[450px] h-[600px] mx-auto bg-black/75 text-white'>
+          <div className='max-w-[450px] h-[500px] mx-auto bg-black/75 text-white'>
             <div className='max-w-[320px] mx-auto py-16'>
               <h1 className='text-3xl font-bold'>Sign In</h1>
-              {/* {error ? <p className='text-white p-3 bg-red-400 my-2'> */}
-                {/* {error} */}
-                {/* </p> : null} */}
-              <form 
-              // onSubmit={handleSubmit} 
-              className='w-full flex flex-col py-4'>
+              <form
+                className='w-full flex flex-col py-4'>
                 <input
-                  // onChange={(e) => setEmail(e.target.value)}
                   className='p-3 my-2 bg-gray-700 rounded'
                   type='email'
                   placeholder='Email'
@@ -30,7 +24,6 @@ const Login = () => {
                   required
                 />
                 <input
-                  // onChange={(e) => setPassword(e.target.value)}
                   className='p-3 my-2 bg-gray-700 rounded'
                   type='password'
                   placeholder='Password'
@@ -56,7 +49,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 

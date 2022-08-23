@@ -8,6 +8,7 @@ import Shows from '../pages/Shows'
 import ShowDetail from '../components/show/ShowDetails'
 import Popular from '../pages/Popular'
 import PopularDetails from '../components/popular/PopularDetails'
+import Login from '../components/common/Login'
 const AppRoutes = () => {
     return (
         <>
@@ -19,6 +20,7 @@ const AppRoutes = () => {
                 <Route path="tv/:id" element={<ShowDetail />} />
                 <Route path="popular" element={<Popular />} />
                 <Route path="popular/:id" element={<PopularDetails />} />
+                <Route path ="login" element={<Login />}/>
             </Routes>
         </>
     )

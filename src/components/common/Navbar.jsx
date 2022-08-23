@@ -48,8 +48,9 @@ const Navbar = () => {
                 </li>
             </ul>
             <div className=' hidden md:flex right-10 absolute'>
-                
-                <button className='text-white pr-4 cursor-pointer'> <Link to =''>Sign In</Link></button>
+                <Link to='/login'>
+                <button className='text-white pr-4 px-6 py-2 cursor-pointer'>Sign In</button>
+                </Link>
                 <button className='bg-red-600 px-6 py-2 rounded cursor-pointer text-white'>
                     Sign Up
                 </button>
