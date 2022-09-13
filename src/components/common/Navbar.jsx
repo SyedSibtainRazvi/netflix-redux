@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
 import { NavLink } from 'react-router-dom';
 const Navbar = () => {
@@ -48,9 +47,7 @@ const Navbar = () => {
                 </li>
             </ul>
             <div className=' hidden md:flex right-10 absolute'>
-                <Link to='/login'>
                 <button className='text-white pr-4 px-6 py-2 cursor-pointer'>Sign In</button>
-                </Link>
                 <button className='bg-red-600 px-6 py-2 rounded cursor-pointer text-white'>
                     Sign Up
                 </button>
