@@ -1,4 +1,5 @@
 const key = '592508130f6e9c513764df62060036ae';
+// const key = process.env.REACT_APP_API_KEY;
 
 
 const requests = {
