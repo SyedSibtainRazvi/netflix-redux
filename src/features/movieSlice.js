@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import baseURL from "../Api/baseURL";
-import { fetchTrending } from "../Api/requestMovies";
 import requests from "../Api/requests";
 
 export const fetchAsyncMovieDetail = createAsyncThunk(
@@ -16,11 +15,8 @@ export const fetchAsyncMovieDetail = createAsyncThunk(
 export const fetchAsyncTrending = createAsyncThunk(
     "movies/fetchTrendingMovies",
     async () => {
-        const response = await fetchTrending()
-        return response
-
-        // const response = await baseURL.get(`${requests.requestTrending}`);
-        // return response.data.results
+        const response = await baseURL.get(`${requests.requestTrending}`);
+        return response.data.results
     }
 )
 
