@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const MovieCard = ({ item }) => {
   return (
-    <div className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'>
+    <div
+      className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2'>
       <Link to={`/movies/${item.id}`}>
         <img
           className='w-full h-auto block'
